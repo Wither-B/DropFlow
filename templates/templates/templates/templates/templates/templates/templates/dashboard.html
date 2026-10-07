@@ -1,0 +1,35 @@
+{% extends "base.html" %}{% block title %}Meu painel â€” DropFlow{% endblock %}{% block content %}
+ÃREA DO LOJISTA
+OlÃ¡, {{ user.name }} ðŸ‘‹
+
+Resumo da sua conta e pedidos de demonstraÃ§Ã£o.
+
+Explorar catÃ¡logo â†’
+Pedidos criados{{ stats.count }}
+Valor dos pedidos demoR$ {{ '%.2f'|format(stats.total)|replace('.',',') }}
+Saldo da carteiraR$ {{ '%.2f'|format(user.balance)|replace('.',',') }}
+SUA LOJA
+{{ store.name }}
+Sua loja pÃºblica: /loja/{{ store.slug }}
+Editar loja DomÃ­nio Abrir loja
+Pedidos recentes
+
+Pedidos de teste nÃ£o sÃ£o enviados e nÃ£o geram cobranÃ§a.
+
+{% for o in orders %}{% else %}{% endfor %}
+Pedido	Produto	Qtd.	Total	Status	Data
+#{{ o.id }}	{{ o.emoji }} {{ o.product_name }}	{{ o.quantity }}	R$ {{ '%.2f'|format(o.total)|replace('.',',') }}	{{ o.status }}	{{ o.created_at }}
+VocÃª ainda nÃ£o criou pedidos. Acesse o catÃ¡logo para testar.
+Produtos disponÃ­veis
+
+Crie pedidos de teste para experimentar o fluxo.
+
+{% for p in products[:4] %}
+{{ p.emoji }}
+{{ p.name }}
+
+R$ {{ '%.2f'|format(p.price)|replace('.',',') }}
+Estoque: {{ p.stock }}
+Pedido demo
+{% endfor %}
+{% endblock %}
