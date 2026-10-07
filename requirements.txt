@@ -1,5 +1,0 @@
-Flask>=3.0,<4
-Werkzeug>=3.0,<4
-gunicorn>=23,<24
-psycopg[binary]>=3.2,<4
-requests>=2.32,<3
