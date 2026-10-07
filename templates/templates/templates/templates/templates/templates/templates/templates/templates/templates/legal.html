@@ -1,0 +1,33 @@
+{% extends "base.html" %}{% block title %}{{'Privacidade' if kind=='privacy' else 'Termos'}} â€” DropFlow{% endblock %}{% block content %}
+{{'PolÃ­tica de Privacidade' if kind=='privacy' else 'Termos de Uso'}}
+
+Este Ã© um modelo inicial e precisa ser revisado por um responsÃ¡vel jurÃ­dico antes da publicaÃ§Ã£o.
+
+{% if kind=='privacy' %}
+Dados
+
+O sistema pode tratar dados de cadastro, pedidos e informaÃ§Ãµes necessÃ¡rias Ã  operaÃ§Ã£o. O responsÃ¡vel pela plataforma deve definir finalidade, retenÃ§Ã£o, bases legais, fornecedores e canal para solicitaÃ§Ãµes dos titulares.
+
+SeguranÃ§a
+
+Use HTTPS, controle de acesso, senhas com hash, backups e registros de seguranÃ§a. NÃ£o armazene dados de cartÃ£o no DropFlow.
+
+Contato
+
+Substitua este texto pelo contato do controlador e, quando aplicÃ¡vel, do encarregado.
+
+{% else %}
+Uso da plataforma
+
+O lojista Ã© responsÃ¡vel pelos produtos, informaÃ§Ãµes, tributos, atendimento e conformidade de sua loja.
+
+Pagamentos
+
+Pagamentos sÃ³ devem ser considerados concluÃ­dos apÃ³s confirmaÃ§Ã£o do provedor. O DropFlow nÃ£o deve confiar apenas no redirecionamento do navegador.
+
+Responsabilidades
+
+Substitua este modelo pelos termos jurÃ­dicos definitivos antes do lanÃ§amento.
+
+{% endif %}
+{% endblock %}
