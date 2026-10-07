@@ -1,7 +1,0 @@
-DropFlow
-Catálogo{% if session.get('user_id') %}Meu painelMinha lojaVer lojaSair{% else %}EntrarCriar conta{% endif %}
-{{ 'Abrir painel' if session.get('user_id') else 'Começar grátis' }}
-{% with messages = get_flashed_messages(with_categories=true) %}{% for category,message in messages %}
-{{ message }}
-{% endfor %}{% endwith %}{% block content %}{% endblock %}
-© 2026 DropFlow · Projeto inicial de demonstração. Pedidos e valores não representam transações reais.
