@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropFlow - Criar Conta</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #1e293b;
+            width: 100%;
+            max-width: 400px;
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+
+        .brand-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-submit:active {
+            opacity: 0.9;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .footer-text a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h1 class="brand-title">DropFlow</h1>
+        <p class="subtitle">Crie a sua conta para começar</p>
+
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="username">Nome de Utilizador</label>
+                <input type="text" id="username" name="username" placeholder="Escolha um utilizador" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="O seu melhor e-mail" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Palavra-passe</label>
+                <input type="password" id="password" name="password" placeholder="Crie uma palavra-passe" required autocomplete="new-password">
+            </div>
+
+            <button type="submit" class="btn-submit">Criar Conta</button>
+        </form>
+
+        <div class="footer-text">
+            Já tem uma conta? <a href="/login">Entrar</a>
+        </div>
+    </div>
+
+</body>
+</html>
