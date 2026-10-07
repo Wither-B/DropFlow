@@ -1,0 +1,24 @@
+{% extends "base.html" %}{% block title %}CatÃ¡logo â€” DropFlow{% endblock %}{% block content %}
+CatÃ¡logo de produtos
+
+Estoque e preÃ§os de demonstraÃ§Ã£o.
+
+
+{% for p in products %}
+{{ p.emoji }}
+{{ p.category }}
+{{ p.name }}
+
+R$ {{ '%.2f'|format(p.price)|replace('.',',') }}
+Estoque: {{ p.stock }}
+{% if session.get('user_id') %}
+Criar pedido demo
+{% else %}
+Entre para testar pedidos
+
+{% endif %}
+{% else %}
+Nenhum produto encontrado.
+
+{% endfor %}
+{% endblock %}
