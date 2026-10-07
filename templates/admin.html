@@ -1,0 +1,16 @@
+{% extends "base.html" %}{% block content %}
+AdministraÃ§Ã£o
+
+Ãrea reservada. Configure um mecanismo de administrador antes de disponibilizar em produÃ§Ã£o.
+
+Produtos
+
+{% for p in products %}{% endfor %}
+ID	Produto	Estoque	PreÃ§o
+{{p.id}}	{{p.name}}	{{p.stock}}	{{p.price}}
+UsuÃ¡rios
+
+{% for u in users %}{% endfor %}
+ID	Nome	E-mail
+{{u.id}}	{{u.name}}	{{u.email}}
+{% endblock %}
