@@ -1,9 +1,0 @@
-{% extends "base.html" %}{% block title %}{{ 'Criar conta' if mode=='register' else 'Entrar' }} â€” DropFlow{% endblock %}{% block content %}
-{{ 'Criar sua conta' if mode=='register' else 'Bem-vindo de volta' }}
-
-{{ 'Preencha os dados para criar seu acesso.' if mode=='register' else 'Entre para acessar seu painel.' }}
-
-{% if mode=='register' %}Nome{% endif %}E-mailSenha{{ 'Criar conta' if mode=='register' else 'Entrar' }}
-{% if mode=='register' %}JÃ¡ tem conta? Entrar{% else %}Ainda nÃ£o tem conta? Cadastre-se{% endif %}
-
-{% endblock %}
