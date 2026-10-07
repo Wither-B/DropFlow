@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% block title %}{{ store.name }} â€” DropFlow{% endblock %}{% block content %}
+{{ store.logo_emoji }}
+{{ store.name }}
+{{ store.description }}
+
+LOJA OFICIAL
+Produtos
+
+Escolha um produto para conhecer a oferta.
+
+{% for p in products %}
+{{ p.emoji }}
+{{ p.category }}
+{{ p.custom_name or p.name }}
+
+R$ {{ '%.2f'|format(p.custom_price if p.custom_price is not none else p.price)|replace('.',',') }}
+DisponÃ­vel: {{ p.stock }}
+Comprar
+{% else %}
+Esta loja ainda nÃ£o publicou produtos.
+
+O lojista precisa selecionar produtos no painel.
+
+{% endfor %}
+Compra segura
+
+Checkout e pagamentos serÃ£o habilitados apÃ³s a configuraÃ§Ã£o de um provedor de pagamento.
+
+{% endblock %}
