@@ -1,0 +1,26 @@
+{% extends "base.html" %}{% block title %}Minha loja â€” DropFlow{% endblock %}{% block content %}
+Configurar minha loja
+
+Personalize a vitrine pÃºblica que seus clientes vÃ£o acessar.
+
+Identidade
+
+Nome da loja EndereÃ§o pÃºblico
+/loja/
+
+DescriÃ§Ã£o Emoji/logo Cor principal Salvar alteraÃ§Ãµes
+Produtos publicados
+
+Marque os produtos que aparecerÃ£o na sua vitrine. VocÃª pode alterar nome e preÃ§o de venda.
+
+{% for p in products %}
+
+{{ p.emoji }} {{ p.name }}
+ 
+{% endfor %}
+URL da sua loja
+
+Depois de publicar o projeto em um domÃ­nio, vocÃª poderÃ¡ usar um endereÃ§o como seudominio.com/loja/{{ store.slug }}. DomÃ­nio personalizado ainda precisa ser implementado.
+
+Ver vitrine agora â†’
+{% endblock %}
