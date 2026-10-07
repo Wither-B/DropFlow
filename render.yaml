@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: dropflow
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: DROPFlow_SECRET
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: PAYMENT_PROVIDER
+        value: disabled
+      - key: DATABASE_URL
+        sync: false

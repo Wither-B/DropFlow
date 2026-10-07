@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file: .env
+    depends_on:
+      - db
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: dropflow
+      POSTGRES_USER: dropflow
+      POSTGRES_PASSWORD: change-this
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
