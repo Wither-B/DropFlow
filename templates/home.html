@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}DropFlow — Dropshipping simplificado{% endblock %}
+{% block content %}
+<section class="hero"><div><span class="pill">DROPSHIPPING SIMPLIFICADO</span><h1>Venda online sem complicação.</h1><p>Organize seu catálogo, personalize sua loja e acompanhe seus pedidos em um só lugar.</p><div class="actions"><a class="btn primary" href="{{ url_for('register') }}">Começar grátis</a><a class="btn soft" href="{{ url_for('catalog') }}">Ver catálogo</a></div></div><div class="hero-card"><div class="hero-icon">🛍️</div><h3>Sua loja em poucos passos</h3><p class="muted">Cadastre-se, escolha os produtos e publique sua vitrine.</p></div></section>
+<section class="section"><div class="head"><h2>Produtos em destaque</h2><a href="{{ url_for('catalog') }}">Ver todos →</a></div><div class="products">{% for p in products %}<article class="prod"><div class="emoji">{{ p.emoji }}</div><div class="prod-body"><span class="pill">{{ p.category }}</span><h3>{{ p.name }}</h3><div class="price">R$ {{ '%.2f'|format(p.price)|replace('.',',') }}</div><div class="small">Estoque: {{ p.stock }}</div></div></article>{% else %}<div class="card empty">Nenhum produto disponível.</div>{% endfor %}</div></section>
+{% endblock %}

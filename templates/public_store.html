@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ store.name }} — DropFlow{% endblock %}
+{% block content %}
+<section class="store-hero"><div class="store-logo">{{ store.logo_emoji }}</div><div><span class="pill">LOJA ONLINE</span><h1>{{ store.name }}</h1><p>{{ store.description }}</p></div></section>
+<section class="section"><div class="head"><h2>Produtos</h2><a class="btn soft" href="{{ url_for('catalog') }}">Catálogo geral</a></div><div class="products">{% for p in products %}<article class="prod"><div class="emoji">{{ p.emoji }}</div><div class="prod-body"><span class="pill">{{ p.category }}</span><h3>{{ p.custom_name or p.name }}</h3><div class="price">R$ {{ '%.2f'|format(p.custom_price if p.custom_price is not none else p.price)|replace('.',',') }}</div><div class="small">Estoque: {{ p.stock }}</div><form method="post" action="{{ url_for('public_store_order', slug=store.slug, product_id=p.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}"><button class="btn primary" type="submit">Comprar</button></form></div></article>{% else %}<div class="card empty">Esta loja ainda não publicou produtos.</div>{% endfor %}</div></section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}{% block title %}Minha loja — DropFlow{% endblock %}{% block content %}
+<section class="section">
+<div class="head"><h1>Configurar minha loja</h1><p class="muted">Personalize a vitrine pública que seus clientes vão acessar.</p></div>
+<form method="post"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+<div class="grid" style="grid-template-columns:1fr 1fr">
+<div class="card">
+<h2>Identidade</h2>
+<label>Nome da loja</label><input class="field" name="name" value="{{ store.name }}" required>
+<label>Endereço público</label><div style="display:flex;align-items:center;gap:7px"><span class="small">/loja/</span><input class="field" name="slug" value="{{ store.slug }}" required pattern="[a-z0-9-]+" title="Use apenas letras minúsculas, números e hífens"></div>
+<label>Descrição</label><textarea class="field" name="description" rows="4">{{ store.description }}</textarea>
+<label>Emoji/logo</label><input class="field" name="logo_emoji" value="{{ store.logo_emoji }}" maxlength="8">
+<label>Cor principal</label><input class="field" type="color" name="primary_color" value="{{ store.primary_color }}" style="height:48px;padding:5px">
+<button class="btn primary">Salvar alterações</button>
+</div>
+<div class="card">
+<h2>Produtos publicados</h2><p class="muted">Marque os produtos que aparecerão na sua vitrine. Você pode alterar nome e preço de venda.</p>
+{% for p in products %}
+<div style="border-top:1px solid #edf0f5;padding:14px 0">
+<label style="display:flex;gap:10px;align-items:center"><input type="checkbox" name="product_{{ p.id }}" {% if p.store_active %}checked{% endif %}><b>{{ p.emoji }} {{ p.name }}</b></label>
+<input class="field" name="name_{{ p.id }}" value="{{ p.custom_name or '' }}" placeholder="Nome personalizado (opcional)">
+<input class="field" name="price_{{ p.id }}" value="{{ p.custom_price if p.custom_price is not none else '' }}" placeholder="Preço personalizado (opcional)">
+</div>
+{% endfor %}
+</div></div></form>
+<div class="card" style="margin-top:18px"><h3>URL da sua loja</h3><p class="muted">Depois de publicar o projeto em um domínio, você poderá usar um endereço como <b>seudominio.com/loja/{{ store.slug }}</b>. Domínio personalizado ainda precisa ser implementado.</p><a class="btn soft" href="{{ url_for('my_store') }}" target="_blank">Ver vitrine agora →</a></div>
+</section>{% endblock %}
